@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="content-section mt-4">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <div class="text-center">
+                <legend>
+                    <h2>Profile</h2>
+                </legend>
+            </div>
+            <hr>
+            <div class="media">
+                <img class="rounded-circle account-img mt-4" width="15%" src="{{ user.employee.profile_pic_url }}">
+                <div class="card-body text-left ">
+
+                    <h3 class="account-heading"><strong class="text-secondary">Username:</strong> {{ user.username }}
+                    </h3>
+                    <h3><strong class="text-secondary">Email: </strong>{{ user.email }}</h3>
+                    <h3><strong class="text-secondary">First name: </strong>{{ user.first_name }}</h3>
+                    <h3><strong class="text-secondary">Last name: </strong>{{ user.last_name }}</h3>
+                    <h3><strong class="text-secondary">Date of employment:
+                        </strong>{{ user.employee.date_of_employment }}
+                    </h3>
+                    <h3><strong class="text-secondary">Gender: </strong>{{ user.employee.gender }}</h3>
+                    <h3><strong class="text-secondary">ID number: </strong>{{ user.employee.id_number }}
+                    </h3>
+                    <h3><strong class="text-secondary">Department: </strong>{{ user.employee.department }}</h3>
+                    <h3><strong class="text-secondary">Phone number: </strong>{{ user.employee.phone_number }}</h3>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Update Profile</legend>
+                    {{ u_form|crispy }}
+                    {{ e_form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

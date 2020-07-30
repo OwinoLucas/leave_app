@@ -6,11 +6,14 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
+from .decorators import unauthenticated_user
 from .forms import *
 from .models import *
 import datetime
 
 # Create your views here.
+@unauthenticated_user
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -28,6 +31,7 @@ def register(request):
     }
     return render(request, 'auth/register.html', context)
 
+@unauthenticated_user
 def loginPage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -52,3 +56,23 @@ def logoutUser(request):
 
 def home(request):
     return render(request, 'index.html')
+
+@login_required
+def profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        e_form = EmployeeUpdateForm(
+            request.POST, request.FILES, instance=request.user.employee)
+        if u_form.is_valid() and e_form.is_valid():
+            u_form.save()
+            e_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('profile')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        e_form = EmployeeUpdateForm(instance=request.user.employee)
+
+    context = {'u_form': u_form,
+               'e_form': e_form, }
+    return render(request, 'profile.html', context)

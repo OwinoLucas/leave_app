@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 import datetime as dt
 
 # Create your models here.
@@ -11,8 +12,8 @@ class Employee(models.Model):
         ('Male', 'Male',)
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    id_number = models.IntegerField(blank=True)
-    date_of_employment = models.DateTimeField( null=False, blank=False)
+    id_number = models.IntegerField(blank=True,null=True)
+    date_of_employment = models.DateField( null=True, blank=False)
     gender = models.CharField(max_length=7,choices=SEX_CHOICES)
     department = models.CharField(max_length=70,blank=True)
     profile_pic = models.ImageField(upload_to='profile/',
@@ -20,7 +21,36 @@ class Employee(models.Model):
     phone_number = models.CharField(max_length=70,blank=True)
 
     def __str__(self):
-        return self.first_name
+        return self.user.username
+
+
+    @property
+    def profile_pic_url(self):
+        if self.profile_pic and hasattr(self.profile_pic, 'url'):
+            return self.profile_pic.url
+        else:
+            return "/media/default.png"
+
+    def save_employee(self):
+        self.save()
+
+    def update_employee(self, using=None, fields=None, **kwargs):
+        if fields is not None:
+            fields = set(fields)
+            deferred_fields = self.get_deferred_fields()
+            if fields.intersection(deferred_fields):
+                fields = fields.union(deferred_fields)
+        super().refresh_from_db(using, fields, **kwargs)
+
+    def delete_employee(self):
+        self.delete()
+
+    def create_employee_profile(sender, **kwargs):
+        if kwargs['created']:
+            employee_profile = Employee.objects.create(user=kwargs['instance'])
+        
+    post_save.connect(create_employee_profile, sender=User)
+
 
 class Leave(models.Model):
     STATUSES = (
