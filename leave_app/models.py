@@ -6,12 +6,14 @@ import datetime as dt
 
 # Create your models here.
 class Employee(models.Model):
+    SEX_CHOICES = (
+        ('Female', 'Female',),
+        ('Male', 'Male',)
+    )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=70,blank=True, null=True)
-    last_name = models.CharField(max_length=70,blank=True, null=True)
     id_number = models.IntegerField(blank=True)
-    data_of_employment = models.DateTimeField( null=False, blank=False)
-    gender = models.CharField(max_length=70,blank=True)
+    date_of_employment = models.DateTimeField( null=False, blank=False)
+    gender = models.CharField(max_length=7,choices=SEX_CHOICES)
     department = models.CharField(max_length=70,blank=True)
     profile_pic = models.ImageField(upload_to='profile/',
                               blank=True)
