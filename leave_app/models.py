@@ -112,7 +112,6 @@ class Leave(models.Model):
     end_date = models.DateField()
     status = models.TextField(max_length=10, choices = STATUSES, default='Pending')
     leave_app = models.TextField(max_length=20, choices = LEAVE_TYPE, null=True,blank=True)
-    
     date_applied = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
