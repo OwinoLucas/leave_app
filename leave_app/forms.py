@@ -32,4 +32,4 @@ class UserUpdateForm(forms.ModelForm):
 class EmployeeUpdateForm(forms.ModelForm):
     class Meta:
         model = Employee
-        fields = ['id_number', 'date_of_employment', 'gender', 'department', 'profile_pic', 'phone_number']
+        fields = ['id_number', 'date_of_employment', 'gender', 'department', 'profile_pic', 'phone_number', 'blood_group', 'marital_status', 'address']

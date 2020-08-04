@@ -52,7 +52,7 @@ p {
     content: none;
 }
 
-.progressbar li:active {
+.progressbar li:hover {
     color: green;
 }
 
@@ -62,4 +62,11 @@ p {
 
 .progressbar li:active+li:after {
     background-color: green;
+}
+
+
+.prof:hover,
+.lv:hover,
+.finish:hover {
+    color: green;
 }

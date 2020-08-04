@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
 {% load static%}
 
 {% block content %}
@@ -44,16 +43,55 @@
 <h2>SERVICES</h2>
 <hr>
 <article>LEAVE APP is an application that enables active employees to apply for leave to their Human Resource office
-    for approval. This service is meant to improve the previous, outdated and quite franckly time consuming paper work
+    for approval. This service is meant to improve the previously outdated and quite franckly time consuming paper work
     process and also speed up the application response time from the Human Resource's office. Basically efficiency is
     what separates this service from the current tidious alternative. </article>
 <br>
 <h2>STEPS</h2>
 <hr>
 <ul class="progressbar">
-    <li class="active"><i class="icon-user icon-3x"></i></li>
-    <li><i class="icon-calendar icon-3x"></i></li>
-    <li><i class="icon-spinner icon-3x"></i></li>
-</ul>
+    <div>
+        <li id="profile" class="active"><i class="icon-user icon-3x"></i></li>
 
+    </div>
+
+    <div>
+        <li id="leave"><i class="icon-calendar icon-3x"></i></li>
+
+    </div>
+    <div>
+        <li id="official"><i class="icon-spinner icon-3x"></i></li>
+
+    </div>
+
+</ul>
+<div class="row text-left">
+    <div class="col-md-4">
+        <div class="prof">
+            <ul>
+                <li>Log in using provided login credentials.</li><br>
+                <li>Update employee profile page.</li><br>
+                <li>Enter next of kin data for emergency purposes.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="lv">
+            <ul>
+                <li>Enter leave information.</li><br>
+                <li>Confirm information entered is authentic to employee's credentials.</li><br>
+                <li>Submit leave form.</li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="finish">
+            <ul>
+                <li>Wait for application's approval from Human Resource's office.</li><br>
+                <li>If approved, have a nice leave. If not, read HR's reason and respond appropriately.</li>
+            </ul>
+        </div>
+    </div>
+</div>
 {% endblock %}
