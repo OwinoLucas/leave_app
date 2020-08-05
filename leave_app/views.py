@@ -76,3 +76,13 @@ def profile(request):
     context = {'u_form': u_form,
                'e_form': e_form, }
     return render(request, 'profile.html', context)
+
+def security(request):
+    
+    context = {}
+    return render(request, 'security.html', context)
+
+def notifications(request):
+    
+    context = {}
+    return render(request, 'notifications.html', context)

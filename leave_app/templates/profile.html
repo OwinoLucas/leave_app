@@ -4,53 +4,154 @@
 
 {% block content %}
 
-<div class="content-section mt-4">
-    <div class="row">
-        <div class="col-md-6 text-center">
-            <div class="text-center">
-                <legend>
-                    <h2>Profile</h2>
-                </legend>
-            </div>
-
-            <div class="media">
-                <img class="rounded-circle account-img mt-4" width="15%" src="{{ user.employee.profile_pic_url }}">
-                <div class="card-body text-left ">
-
-                    <h3 class="account-heading"><strong class="text-secondary">Username:</strong> {{ user.username }}
-                    </h3>
-                    <h3><strong class="text-secondary">Email: </strong>{{ user.email }}</h3>
-                    <h3><strong class="text-secondary">First name: </strong>{{ user.first_name }}</h3>
-                    <h3><strong class="text-secondary">Last name: </strong>{{ user.last_name }}</h3>
-                    <h3><strong class="text-secondary">Date of employment:
-                        </strong>{{ user.employee.date_of_employment }}
-                    </h3>
-                    <h3><strong class="text-secondary">Gender: </strong>{{ user.employee.gender }}</h3>
-                    <h3><strong class="text-secondary">ID number: </strong>{{ user.employee.id_number }}
-                    </h3>
-                    <h3><strong class="text-secondary">Department: </strong>{{ user.employee.department }}</h3>
-                    <h3><strong class="text-secondary">Phone number: </strong>{{ user.employee.phone_number }}</h3>
-                    <h3><strong class="text-secondary">Blood group: </strong>{{ user.employee.blood_group }}</h3>
-                    <h3><strong class="text-secondary">Marital status: </strong>{{ user.employee.marital_status }}</h3>
-                    <h3><strong class="text-secondary">Address: </strong>{{ user.employee.address }}</h3>
+<main>
+    <header class="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
+        <div class="container-fluid">
+            <div class="page-header-content">
+                <div class="row align-items-center justify-content-between pt-3">
+                    <div class="col-auto mb-3">
+                        <h1 class="page-header-title">
+                            <div class="page-header-icon"><i data-feather="user"></i></div>
+                            Account Settings - Profile
+                        </h1>
+                    </div>
                 </div>
             </div>
-
         </div>
-        <div class="col-md-6">
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Update Profile</legend>
-                    {{ u_form|crispy }}
-                    {{ e_form|crispy }}
-                </fieldset>
-                <div class="form-group">
-                    <button class="btn btn-outline-info" type="submit">Update</button>
+    </header>
+    <!-- Main page content-->
+    <div class="container mt-4">
+        <!-- Account page navigation-->
+        <nav class="nav nav-borders">
+            <a class="nav-link active ml-0" href="{% url 'profile' %}">Profile</a>
+            <a class="nav-link" href="{% url 'security' %}">Security</a>
+            <a class="nav-link" href="{% url 'notifications' %}">Notifications</a>
+        </nav>
+        <hr class="mt-0 mb-4" />
+        <div class="row">
+            <div class="col-xl-4">
+                <!-- Profile picture card-->
+                <div class="card">
+                    <div class="card-header">Profile Picture</div>
+                    <div class="card-body text-center">
+                        <!-- Profile picture image-->
+                        <img class="img-account-profile rounded-circle mb-2" src="{% static 'assets/img/default.png' %}"
+                            alt="profile_pic" />
+                        <!-- Profile picture help block-->
+                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                        <!-- Profile picture upload button-->
+                        <button class="btn btn-primary" type="button">Upload new image</button>
+                    </div>
                 </div>
-            </form>
+            </div>
+            <div class="col-xl-8">
+                <!-- Account details card-->
+                <div class="card mb-4">
+                    <div class="card-header">Account Details</div>
+                    <div class="card-body">
+                        <form>
+                            <!-- Form Group (username)-->
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputUsername">Username (how your name will appear to
+                                    other users on the site)</label>
+                                <input class="form-control" id="inputUsername" type="text"
+                                    placeholder="Enter your username" value="username" />
+                            </div>
+                            <!-- Form Row-->
+                            <div class="form-row">
+                                <!-- Form Group (first name)-->
+                                <div class="form-group col-md-6">
+                                    <label class="small mb-1" for="inputFirstName">First name</label>
+                                    <input class="form-control" id="inputFirstName" type="text"
+                                        placeholder="Enter your first name" value="Jane" />
+                                </div>
+                                <!-- Form Group (last name)-->
+                                <div class="form-group col-md-6">
+                                    <label class="small mb-1" for="inputLastName">Last name</label>
+                                    <input class="form-control" id="inputLastName" type="text"
+                                        placeholder="Enter your last name" value="Luna" />
+                                </div>
+                            </div>
+                            <!-- Form Row        -->
+                            <div class="form-row">
+                                <!-- Form Group (organization name)-->
+                                <div class="form-group col-md-6">
+                                    <label class="small mb-1" for="inputOrgName">Department</label>
+                                    <input class="form-control" id="inputOrgName" type="text"
+                                        placeholder="Enter your organization name" value="Editorial" />
+                                </div>
+                                <!-- Form Group (location)-->
+                                <div class="form-group col-md-6">
+                                    <label class="small mb-1" for="inputLocation">Job Title</label>
+                                    <input class="form-control" id="inputLocation" type="text"
+                                        placeholder="Enter your location" value="Editor" />
+                                </div>
+                            </div>
+                            <!-- Form Group (email address)-->
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                                <input class="form-control" id="inputEmailAddress" type="email"
+                                    placeholder="Enter your email address" value="name@example.com" />
+                            </div>
+                            <!-- Form Group (address)-->
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputAddress">Address</label>
+                                <input class="form-control" id="inputAddress" type="text"
+                                    placeholder="Enter your address" value="4564-00100 Nairobi" />
+                            </div>
+                            <!-- Form Row-->
+                            <div class="form-row">
+                                <!-- Form Group (phone number)-->
+                                <div class="form-group col-md-6">
+                                    <label class="small mb-1" for="inputPhone">Phone number</label>
+                                    <input class="form-control" id="inputPhone" type="tel"
+                                        placeholder="Enter your phone number" value="07** *** ***" />
+                                </div>
+                                <!-- Form Group (birthday)-->
+                                <div class="form-group col-md-6">
+                                    <label class="small mb-1" for="inputBirthday">Job Start Date</label>
+                                    <input class="form-control" id="inputBirthday" type="text" name="birthday"
+                                        placeholder="Enter your birthday" value="06/10/1988" />
+                                </div>
+                            </div>
+                            <!-- Form Row-->
+                            <div class="form-row">
+                                <!-- Form Group (blood group)-->
+                                <div class="form-group col-md-6">
+                                    <label class="small mb-1" for="inputBloodGrp">Blood Group</label>
+                                    <input class="form-control" id="inputBloodGrp" type="text"
+                                        placeholder="Enter your blood group" value="B+" />
+                                </div>
+                                <!-- Form Group (gender)-->
+                                <div class="form-group col-md-6">
+                                    <label class="small mb-1" for="inputGender">Gender</label>
+                                    <input class="form-control" id="inputGender" type="text" name="gender"
+                                        placeholder="Enter your gender" value="female" />
+                                </div>
+                            </div>
+                            <!-- Form Row-->
+                            <div class="form-row">
+                                <!-- Form Group (Id Number)-->
+                                <div class="form-group col-md-6">
+                                    <label class="small mb-1" for="inputIdNumber">Id Number</label>
+                                    <input class="form-control" id="inputIdNumber" type="text"
+                                        placeholder="Enter your Id Number" value="23458901" />
+                                </div>
+                                <!-- Form Group (gender)-->
+                                <div class="form-group col-md-6">
+                                    <label class="small mb-1" for="inputMaritalStatus">Marital Status</label>
+                                    <input class="form-control" id="inputMaritalStatus" type="text" name="maritalstatus"
+                                        placeholder="Enter your Marital Status" value="Entanglement" />
+                                </div>
+                            </div>
+                            <!-- Save changes button-->
+                            <button class="btn btn-primary" type="button">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</main>
 
 {% endblock %}

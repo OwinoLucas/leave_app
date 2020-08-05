@@ -2,96 +2,310 @@
 {% load static%}
 
 {% block content %}
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="{% static 'img/carousel.png'%}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>WELCOME TO LEAVE APP</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+<main>
+    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+        <div class="container">
+            <div class="page-header-content pt-4">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto mt-4">
+                        <h1 class="page-header-title">
+                            <div class="page-header-icon"><i data-feather="activity"></i></div>
+                            Leave Management System
+                        </h1>
+                        <div class="page-header-subtitle">Easy Leave Application
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-auto mt-4">
+                        <button class="btn btn-white btn-sm line-height-normal p-3" id="reportrange">
+                            <i class="mr-2 text-primary" data-feather="calendar"></i>
+                            <span></span>
+                            <i class="ml-1" data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="carousel-item">
-            <img src="{% static 'img/carousel.png'%}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>WELCOME TO LEAVE APP</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </header>
+    <!-- Main page content-->
+    <div class="container mt-n10">
+        <div class="row">
+            <div class="col-xxl-4 col-xl-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-body h-100 d-flex flex-column justify-content-center py-5 py-xl-4">
+                        <div class="row align-items-center">
+                            <div class="col-xl-8 col-xxl-12">
+                                <div class="text-center px-4 mb-4 mb-xl-0 mb-xxl-4">
+                                    <h1 class="text-primary">Welcome Back!</h1>
+                                    <p class="text-gray-700 mb-0">It&apos;s time to get started! View new
+                                        opportunities now, or continue on your previous work.</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-xxl-12 text-center"><img class="img-fluid"
+                                    src="{% static 'assets/img/freepik/at-work-pana.svg'%}" style="max-width: 26rem;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-4 col-xl-6 mb-4">
+                <div class="card card-header-actions h-100">
+                    <div class="card-header">
+                        Recent Activity
+                        <div class="dropdown no-caret">
+                            <button class="btn btn-transparent-dark btn-icon dropdown-toggle" id="dropdownMenuButton"
+                                type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="text-gray-500" data-feather="more-vertical"></i></button>
+                            <div class="dropdown-menu dropdown-menu-right animated--fade-in-up"
+                                aria-labelledby="dropdownMenuButton">
+                                <h6 class="dropdown-header">Filter Activity:</h6>
+                                <a class="dropdown-item" href="#!"><span
+                                        class="badge badge-green-soft text-green my-1">Commerce</span></a>
+                                <a class="dropdown-item" href="#!"><span
+                                        class="badge badge-blue-soft text-blue my-1">Reporting</span></a>
+                                <a class="dropdown-item" href="#!"><span
+                                        class="badge badge-yellow-soft text-yellow my-1">Server</span></a>
+                                <a class="dropdown-item" href="#!"><span
+                                        class="badge badge-purple-soft text-purple my-1">Users</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="timeline timeline-xs">
+                            <!-- Timeline Item 1-->
+                            <div class="timeline-item">
+                                <div class="timeline-item-marker">
+                                    <div class="timeline-item-marker-text">27 min</div>
+                                    <div class="timeline-item-marker-indicator bg-green"></div>
+                                </div>
+                                <div class="timeline-item-content">
+                                    New order placed!
+                                    <a class="font-weight-bold text-dark" href="#!">Order #2912</a>
+                                    has been successfully placed.
+                                </div>
+                            </div>
+                            <!-- Timeline Item 2-->
+                            <div class="timeline-item">
+                                <div class="timeline-item-marker">
+                                    <div class="timeline-item-marker-text">58 min</div>
+                                    <div class="timeline-item-marker-indicator bg-blue"></div>
+                                </div>
+                                <div class="timeline-item-content">
+                                    Your
+                                    <a class="font-weight-bold text-dark" href="#!">weekly report</a>
+                                    has been generated and is ready to view.
+                                </div>
+                            </div>
+                            <!-- Timeline Item 3-->
+                            <div class="timeline-item">
+                                <div class="timeline-item-marker">
+                                    <div class="timeline-item-marker-text">2 hrs</div>
+                                    <div class="timeline-item-marker-indicator bg-purple"></div>
+                                </div>
+                                <div class="timeline-item-content">
+                                    New user
+                                    <a class="font-weight-bold text-dark" href="#!">Valerie Luna</a>
+                                    has registered
+                                </div>
+                            </div>
+                            <!-- Timeline Item 4-->
+                            <div class="timeline-item">
+                                <div class="timeline-item-marker">
+                                    <div class="timeline-item-marker-text">1 day</div>
+                                    <div class="timeline-item-marker-indicator bg-yellow"></div>
+                                </div>
+                                <div class="timeline-item-content">Server activity monitor alert</div>
+                            </div>
+                            <!-- Timeline Item 5-->
+                            <div class="timeline-item">
+                                <div class="timeline-item-marker">
+                                    <div class="timeline-item-marker-text">1 day</div>
+                                    <div class="timeline-item-marker-indicator bg-green"></div>
+                                </div>
+                                <div class="timeline-item-content">
+                                    New order placed!
+                                    <a class="font-weight-bold text-dark" href="#!">Order #2911</a>
+                                    has been successfully placed.
+                                </div>
+                            </div>
+                            <!-- Timeline Item 6-->
+                            <div class="timeline-item">
+                                <div class="timeline-item-marker">
+                                    <div class="timeline-item-marker-text">1 day</div>
+                                    <div class="timeline-item-marker-indicator bg-purple"></div>
+                                </div>
+                                <div class="timeline-item-content">
+                                    Details for
+                                    <a class="font-weight-bold text-dark" href="#!">Marketing and Planning
+                                        Meeting</a>
+                                    have been updated.
+                                </div>
+                            </div>
+                            <!-- Timeline Item 7-->
+                            <div class="timeline-item">
+                                <div class="timeline-item-marker">
+                                    <div class="timeline-item-marker-text">2 days</div>
+                                    <div class="timeline-item-marker-indicator bg-green"></div>
+                                </div>
+                                <div class="timeline-item-content">
+                                    New order placed!
+                                    <a class="font-weight-bold text-dark" href="#!">Order #2910</a>
+                                    has been successfully placed.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-4 col-xl-6 mb-4">
+                <div class="card card-header-actions h-100">
+                    <div class="card-header">
+                        Progress Tracker
+                        <div class="dropdown no-caret">
+                            <button class="btn btn-transparent-dark btn-icon dropdown-toggle" id="dropdownMenuButton"
+                                type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="text-gray-500" data-feather="more-vertical"></i></button>
+                            <div class="dropdown-menu dropdown-menu-right animated--fade-in-up"
+                                aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#!">
+                                    <div class="dropdown-item-icon"><i class="text-gray-500" data-feather="list"></i>
+                                    </div>
+                                    Manage Tasks
+                                </a>
+                                <a class="dropdown-item" href="#!">
+                                    <div class="dropdown-item-icon"><i class="text-gray-500"
+                                            data-feather="plus-circle"></i></div>
+                                    Add New Task
+                                </a>
+                                <a class="dropdown-item" href="#!">
+                                    <div class="dropdown-item-icon"><i class="text-gray-500"
+                                            data-feather="minus-circle"></i></div>
+                                    Delete Tasks
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="small">
+                            Server Migration
+                            <span class="float-right font-weight-bold">20%</span>
+                        </h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 20%;"
+                                aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h4 class="small">
+                            Sales Tracking
+                            <span class="float-right font-weight-bold">40%</span>
+                        </h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 40%;"
+                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h4 class="small">
+                            Customer Database
+                            <span class="float-right font-weight-bold">60%</span>
+                        </h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h4 class="small">
+                            Payout Details
+                            <span class="float-right font-weight-bold">80%</span>
+                        </h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 80%;" aria-valuenow="80"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h4 class="small">
+                            Account Setup
+                            <span class="float-right font-weight-bold">Complete!</span>
+                        </h4>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%;"
+                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <a class="card-footer" href="#!">
+                        <div class="d-flex align-items-center justify-content-between small text-body">
+                            Visit Task Center
+                            <i data-feather="arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="carousel-item">
-            <img src="{% static 'img/carousel.png'%}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>WELCOME TO LEAVE APP</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <!-- Example Colored Cards for Dashboard Demo-->
+        <div class="row">
+            <div class="col-xxl-3 col-lg-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="mr-3">
+                                <div class="text-white-75 small">Test</div>
+                                <div class="text-lg font-weight-bold">Test</div>
+                            </div>
+                            <i class="feather-xl text-white-50" data-feather="calendar"></i>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Report</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-lg-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="mr-3">
+                                <div class="text-white-75 small">Test</div>
+                                <div class="text-lg font-weight-bold">Test</div>
+                            </div>
+                            <i class="feather-xl text-white-50" data-feather="dollar-sign"></i>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Report</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-lg-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="mr-3">
+                                <div class="text-white-75 small">Task Completion</div>
+                                <div class="text-lg font-weight-bold">24</div>
+                            </div>
+                            <i class="feather-xl text-white-50" data-feather="check-square"></i>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Tasks</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-lg-6">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="mr-3">
+                                <div class="text-white-75 small">Pending Requests</div>
+                                <div class="text-lg font-weight-bold">17</div>
+                            </div>
+                            <i class="feather-xl text-white-50" data-feather="message-circle"></i>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Requests</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-<h2>SERVICES</h2>
-<hr>
-<article>LEAVE APP is an application that enables active employees to apply for leave to their Human Resource office
-    for approval. This service is meant to improve the previously outdated and quite franckly time consuming paper work
-    process and also speed up the application response time from the Human Resource's office. Basically efficiency is
-    what separates this service from the current tidious alternative. </article>
-<br>
-<h2>STEPS</h2>
-<hr>
-<ul class="progressbar">
-    <div>
-        <li id="profile" class="active"><i class="icon-user icon-3x"></i></li>
-
-    </div>
-
-    <div>
-        <li id="leave"><i class="icon-calendar icon-3x"></i></li>
-
-    </div>
-    <div>
-        <li id="official"><i class="icon-spinner icon-3x"></i></li>
-
-    </div>
-
-</ul>
-<div class="row text-left">
-    <div class="col-md-4">
-        <div class="prof">
-            <ul>
-                <li>Log in using provided login credentials.</li><br>
-                <li>Update employee profile page.</li><br>
-                <li>Enter next of kin data for emergency purposes.</li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="lv">
-            <ul>
-                <li>Enter leave information.</li><br>
-                <li>Confirm information entered is authentic to employee's credentials.</li><br>
-                <li>Submit leave form.</li>
-
-            </ul>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="finish">
-            <ul>
-                <li>Wait for application's approval from Human Resource's office.</li><br>
-                <li>If approved, have a nice leave. If not, read HR's reason and respond appropriately.</li>
-            </ul>
-        </div>
-    </div>
-</div>
+</main>
 {% endblock %}
