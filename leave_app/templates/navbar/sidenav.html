@@ -1,0 +1,78 @@
+<div id="layoutSidenav_nav">
+    <nav class="sidenav shadow-right sidenav-light">
+        <div class="sidenav-menu">
+            <div class="nav accordion" id="accordionSidenav">
+                <div class="sidenav-menu-heading">Core</div>
+                <a class="nav-link" href="{% url 'home'%}">
+                    <div class="nav-link-icon"><i data-feather="home"></i></div>Home
+                </a>
+                <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse"
+                    data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
+                    <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                    Dashboard
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapseDashboards" data-parent="#accordionSidenav">
+                    <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                        <a class="nav-link" href="#">
+                            HOD
+                        </a>
+                        <a class="nav-link" href="#">
+                            HR
+                        </a>
+                    </nav>
+                </div>
+                <div class="sidenav-menu-heading">App Views</div>
+                <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse"
+                    data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                    <div class="nav-link-icon"><i data-feather="grid"></i></div>
+                    My Account
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages" data-parent="#accordionSidenav">
+                    <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
+                        <a class="nav-link" href="{% url 'profile'%}">Profile</a>
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse"
+                            data-target="#pagesCollapseAccount" aria-expanded="false"
+                            aria-controls="pagesCollapseAccount">
+                            Account Settings
+                            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="pagesCollapseAccount" data-parent="#accordionSidenavPagesMenu">
+                            <nav class="sidenav-menu-nested nav">
+                                <a class="nav-link" href="{% url 'security'%}">
+                                    Security
+                                </a>
+                                <a class="nav-link" href="{% url 'notifications'%}">
+                                    Notifications
+                                </a>
+                            </nav>
+                        </div>
+
+                    </nav>
+                </div>
+                <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse"
+                    data-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
+                    <div class="nav-link-icon"><i data-feather="repeat"></i></div>
+                    Apply Leave
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapseFlows" data-parent="#accordionSidenav">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="/"> Apply</a>
+                        <a class="nav-link" href="/">
+                            Wizard
+                        </a>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+        <div class="sidenav-footer">
+            <div class="sidenav-footer-content">
+                <div class="sidenav-footer-subtitle">Logged in as:</div>
+                <div class="sidenav-footer-title">Username</div>
+            </div>
+        </div>
+    </nav>
+</div>
